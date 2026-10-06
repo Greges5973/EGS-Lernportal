@@ -3138,7 +3138,7 @@ showPage(
     "adminPage"
 );
 
-
+await loadAdminTopics();
 }
 
 

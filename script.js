@@ -4523,7 +4523,7 @@ function editAdminQuestion(id) { // Füllt das Formular mit einer bestehenden Fr
     populateAdminSubtopics(question.topic || "");
     $("adminQuestionTopic").value = question.topic || "";
     populateAdminQuestionExamSelect(Array.isArray(question.exam_ids) ? question.exam_ids : []);
-    $("adminQuestionDifficulty").value = question.difficulty || "mittel";
+    $("adminQuestionDifficulty").value = question.difficulty || "medium";
     $("adminQuestionExamPart").value = question.exam_part || "";
     $("adminQuestionText").value = question.question || "";
     $("adminQuestionAnswerA").value = question.answer_a || "";

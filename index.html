@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGS-Lernportal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main id="authContainer" class="auth-container">
+    <section class="auth-card">
+    <div class="brand-mark">
+        <span>EGS</span>
+    </div>
+
+    <p class="eyebrow">LERNPORTAL</p>
+
+    <h1>Elektroniker für Geräte und Systeme</h1>
+
+    <p class="subtitle">
+        Lernen. Üben. Prüfung vorbereiten.
+    </p>
+
+    <div id="loginSection">
+
+        <h2>Anmelden</h2>
+
+        <form id="loginForm">
+
+            <label for="loginEmail">E-Mail oder Benutzername</label>
+
+            <input
+                type="text"
+                id="loginEmail"
+                placeholder="E-Mail oder Benutzername"
+                autocomplete="username"
+                required
+            >
+
+            <label for="loginPassword">Passwort</label>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Passwort"
+                autocomplete="current-password"
+                required
+            >
+
+            <button type="submit">
+                Anmelden
+            </button>
+
+        </form>
+
+        <p id="loginMessage" class="message"></p>
+
+        <button
+            type="button"
+            id="showRegisterButton"
+            class="secondary-button"
+        >
+            Neues Konto erstellen
+        </button>
+
+    </div>
+
+
+    <div id="registerSection" class="hidden">
+
+        <h2>Konto erstellen</h2>
+
+        <form id="registerForm">
+
+            <label for="registerUsername">
+                Benutzername
+            </label>
+
+            <input
+                type="text"
+                id="registerUsername"
+                placeholder="Dein Benutzername"
+                autocomplete="username"
+                minlength="3"
+                required
+            >
+
+            <label for="registerEmail">
+                E-Mail
+            </label>
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="E-Mail-Adresse"
+                autocomplete="email"
+                required
+            >
+
+            <label for="registerPassword">
+                Passwort
+            </label>
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Mindestens 6 Zeichen"
+                autocomplete="new-password"
+                minlength="6"
+                required
+            >
+
+            <button type="submit">
+                Konto erstellen
+            </button>
+
+        </form>
+
+        <p id="registerMessage" class="message"></p>
+
+        <button
+            type="button"
+            id="showLoginButton"
+            class="secondary-button"
+        >
+            Zur Anmeldung
+        </button>
+
+    </div>
+
+</section>
+
+
+</main>
+
+<div id="appContainer" class="app-container hidden">
+
+
+<header class="topbar">
+
+    <div class="logo">
+        <span>EGS</span>
+        <strong>Lernportal</strong>
+    </div>
+    <button
+        type="button"
+        id="mobileMenuButton"
+        class="mobile-menu-button"
+        aria-label="Navigation öffnen"
+        aria-expanded="false"
+    >
+        ☰
+    </button>
+
+    <nav
+        class="navigation"
+        aria-label="Hauptnavigation"
+    >
+
+        <button
+            type="button"
+            class="nav-button active"
+            data-page="dashboardPage"
+        >
+            ⌂ <span>Dashboard</span>
+        </button>
+
+        <button
+            type="button"
+            class="nav-button"
+            data-page="learningPage"
+        >
+            ▤ <span>Fragen</span>
+        </button>
+
+        <button
+            type="button"
+            class="nav-button"
+            data-page="examPage"
+        >
+            ▣ <span>Prüfung</span>
+        </button>
+
+        <button
+            type="button"
+            class="nav-button"
+            data-page="formulasPage"
+        >
+            ∑ <span>Formeln</span>
+        </button>
+
+        <button
+            type="button"
+            class="nav-button"
+            data-page="calculatorPage"
+        >
+            ⌁ <span>Rechner</span>
+        </button>
+
+        <button
+            type="button"
+            class="nav-button"
+            data-page="calendarPage"
+        >
+            □ <span>Kalender</span>
+        </button>
+
+        <button
+            type="button"
+            class="nav-button"
+            data-page="statisticsPage"
+        >
+            ◌ <span>Statistik</span>
+        </button>
+
+        <button
+            type="button"
+            class="nav-button"
+            data-page="settingsPage"
+        >
+            ⚙ <span>Einstellungen</span>
+        </button>
+
+        <button
+            type="button"
+            id="adminNavButton"
+            class="nav-button admin-button hidden"
+            data-page="adminPage"
+        >
+            ★ <span>Admin</span>
+        </button>
+
+        <button
+            type="button"
+            id="logoutButton"
+            class="logout-button"
+        >
+            Abmelden
+        </button>
+
+    </nav>
+
+</header>
+
+
+<main class="main-content">
+
+
+    <section
+        id="dashboardPage"
+        class="page active-page"
+    >
+
+        <div class="hero">
+
+            <div>
+
+                <p class="eyebrow">
+                    EGS-LERNPORTAL
+                </p>
+
+                <h1>
+                    Willkommen,
+                    <span id="dashboardUsername">
+                        Benutzer
+                    </span>!
+                </h1>
+
+                <p>
+                    Dein zentraler Bereich zum Lernen,
+                    Üben und Vorbereiten auf AP1 und AP2.
+                </p>
+
+            </div>
+
+            <div class="hero-orbit">
+                ⚡
+            </div>
+
+        </div>
+
+
+        <section class="dashboard-progress-section">
+            <div class="dashboard-streak-block">
+                <div class="dashboard-streak-head">
+                    <div>
+                        <p class="eyebrow">DEINE LERNSTRECKE</p>
+                        <h2>Aktuelle Lernserie</h2>
+                        <p>Prüfungen und beantwortete Fragen zählen hier beide als Lerntag.</p>
+                    </div>
+                    <div class="dashboard-streak-actions">
+                        <strong id="dashboardStreak" class="dashboard-streak-count">0 Tage in Folge</strong>
+                        <button type="button" class="secondary-button compact-button" data-page="statisticsPage">Statistik öffnen</button>
+                    </div>
+                </div>
+                <div id="dashboardStreakGrid" class="dashboard-streak-grid"></div>
+            </div>
+            <div class="dashboard-mini-grid">
+                <div class="dashboard-mini-card"><span>Beantwortete Fragen</span><strong id="dashboardAnswered">–</strong></div>
+                <div class="dashboard-mini-card"><span>Trefferquote</span><strong id="dashboardAccuracy">–</strong></div>
+                <div class="dashboard-mini-card"><span>Lernzeit</span><strong id="dashboardLearningTime">–</strong></div>
+            </div>
+        </section>
+
+
+        <div class="dashboard-grid">
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    ▤
+                </div>
+
+                <h2>Fragen</h2>
+
+                <p>
+                    Übe Fragen aus verschiedenen
+                    Themenbereichen.
+                </p>
+
+                <button
+                    type="button"
+                    class="card-button"
+                    data-page="learningPage"
+                >
+                    Fragen öffnen
+                </button>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    ▣
+                </div>
+
+                <h2>Prüfung</h2>
+
+                <p>
+                    Trainiere für AP1 und AP2
+                    mit einem Prüfungsmodus.
+                </p>
+
+                <button
+                    type="button"
+                    class="card-button"
+                    data-page="examPage"
+                >
+                    Prüfung starten
+                </button>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    ∑
+                </div>
+
+                <h2>Formelsammlung</h2>
+
+                <p>
+                    Wichtige Formeln schnell finden
+                    und nachschlagen.
+                </p>
+
+                <button
+                    type="button"
+                    class="card-button"
+                    data-page="formulasPage"
+                >
+                    Formeln öffnen
+                </button>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    ⌁
+                </div>
+
+                <h2>Formelrechner</h2>
+
+                <p>
+                    Elektrotechnische Werte direkt
+                    berechnen.
+                </p>
+
+                <button
+                    type="button"
+                    class="card-button"
+                    data-page="calculatorPage"
+                >
+                    Rechner öffnen
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <div
+            id="adminWelcomeCard"
+            class="admin-welcome hidden"
+        >
+
+            <div>
+
+                <span class="admin-badge">
+                    ADMIN
+                </span>
+
+                <h2>
+                    Administrator-Bereich
+                </h2>
+
+                <p>
+                    Du kannst Formeln und später
+                    weitere Portalbereiche verwalten.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                class="card-button"
+                data-page="adminPage"
+            >
+                Admin öffnen
+            </button>
+
+        </div>
+
+    </section>
+
+
+   
+<section
+    id="learningPage"
+    class="page"
+>
+
+    <div class="page-header">
+
+        <p class="eyebrow">
+            TRAINING
+        </p>
+
+        <h1>
+            Fragen
+        </h1>
+
+        <p>
+            Trainiere nach deinen EGS-Themen und Unterthemen.
+        </p>
+
+    </div>
+
+   <div
+    id="questionsContainer"
+    class="placeholder-card"
+>
+
+    <div class="placeholder-icon">
+        ▤
+    </div>
+
+    <h2>
+        Fragen werden geladen
+    </h2>
+
+    <p>
+        Deine Lernfragen werden aus Supabase geladen.
+    </p>
+
+</div>
+
+</section>
+
+    <section
+        id="examPage"
+        class="page"
+    >
+
+        <div class="page-header">
+
+            <p class="eyebrow">
+                PRÜFUNG
+            </p>
+
+            <h1>
+                Prüfungsmodus
+            </h1>
+
+            <p>
+                Vorbereitung auf AP1 und AP2.
+            </p>
+
+        </div>
+
+       <div
+    id="examContainer"
+    class="exam-card"
+>
+</div>
+
+    </section>
+
+
+    <section
+        id="formulasPage"
+        class="page"
+    >
+
+        <div class="page-header formula-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    NACHSCHLAGEN
+                </p>
+
+                <h1>
+                    Formelsammlung
+                </h1>
+
+                <p>
+                    Wichtige Formeln für deine Ausbildung.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                id="reloadFormulasButton"
+                class="secondary-button compact-button"
+            >
+                ↻ Aktualisieren
+            </button>
+
+        </div>
+
+
+        <div class="toolbar">
+
+            <input
+                id="formulaSearch"
+                type="search"
+                placeholder="Formel oder Titel suchen …"
+            >
+
+            <select id="formulaCategory">
+                <option value="">
+                    Alle Kategorien
+                </option>
+            </select>
+
+        </div>
+
+
+        <p
+            id="formulaMessage"
+            class="message"
+        ></p>
+
+
+        <div
+            id="formulaGrid"
+            class="formula-grid"
+        ></div>
+
+    </section>
+
+
+    <section
+    id="calculatorPage"
+    class="page"
+>
+    <div class="page-header">
+        <p class="eyebrow">BERECHNEN</p>
+        <h1>Formelrechner</h1>
+        <p>Schnelle Rechner für typische elektrotechnische Aufgaben.</p>
+    </div>
+    <div
+        id="calculatorGrid"
+        class="calculator-grid"
+    ></div>
+    <p id="calculatorMessage" class="message"></p>
+</section>
+
+    <section
+        id="calendarPage"
+        class="page"
+    >
+
+        <div class="page-header">
+
+            <p class="eyebrow">
+                PLANUNG
+            </p>
+
+            <h1>
+                Kalender
+            </h1>
+
+            <p>
+                Deine Lernaktivitäten und Termine
+                werden hier gesammelt.
+            </p>
+
+        </div>
+
+
+        <div
+    id="calendarContainer"
+    class="calendar-card"
+>
+
+    <div class="calendar-toolbar">
+
+        <button
+            type="button"
+            id="calendarPrevButton"
+            class="secondary-button calendar-nav-button"
+        >
+            ←
+        </button>
+
+        <h2 id="calendarMonthTitle">
+            Kalender
+        </h2>
+
+        <button
+            type="button"
+            id="calendarNextButton"
+            class="secondary-button calendar-nav-button"
+        >
+            →
+        </button>
+
+    </div>
+
+
+    <div class="calendar-toolbar-secondary">
+
+        <button
+            type="button"
+            id="calendarTodayButton"
+            class="secondary-button compact-button"
+        >
+            Heute
+        </button>
+
+    </div>
+
+
+    <div class="calendar-legend">
+
+        <span>
+            <i class="legend-dot learned"></i>
+            Gelernt
+        </span>
+
+        <span>
+            <i class="legend-dot not-learned"></i>
+            Nicht gelernt
+        </span>
+
+        <span>
+            <i class="legend-dot future"></i>
+            Vor Konto / Zukunft
+        </span>
+
+    </div>
+
+
+    <div class="calendar-weekdays">
+
+        <span>Mo</span>
+        <span>Di</span>
+        <span>Mi</span>
+        <span>Do</span>
+        <span>Fr</span>
+        <span>Sa</span>
+        <span>So</span>
+
+    </div>
+
+
+    <div
+        id="calendarGrid"
+        class="calendar-grid"
+    ></div>
+
+
+    <div
+        id="calendarDayDetails"
+        class="calendar-day-details"
+    >
+        Wähle einen Tag aus, um deine
+        Lernaktivität zu sehen.
+    </div>
+
+</div>
+
+    </section>
+
+
+   <section
+    id="statisticsPage"
+    class="page"
+>
+
+    <div class="page-header">
+
+        <p class="eyebrow">
+            FORTSCHRITT
+        </p>
+
+        <h1>
+            Statistik
+        </h1>
+
+        <p>
+            Dein persönlicher Lern- und Prüfungsfortschritt.
+        </p>
+
+    </div>
+
+
+    <!-- LERNSTATISTIK -->
+
+    <div class="statistics-section">
+
+        <div class="page-header">
+
+            <h2>
+                📚 Lernstatistik
+            </h2>
+
+            <p>
+                Deine normalen Lernfragen und Lerndauer.
+            </p>
+
+        </div>
+
+
+        <div class="statistics-grid">
+
+            <div class="stat-card">
+                <span>
+                    Beantwortete Fragen
+                </span>
+
+                <strong id="statAnswered">
+                    0
+                </strong>
+            </div>
+
+
+            <div class="stat-card">
+                <span>
+                    Richtig beantwortet
+                </span>
+
+                <strong id="statCorrect">
+                    0
+                </strong>
+            </div>
+
+
+            <div class="stat-card">
+                <span>
+                    Falsch beantwortet
+                </span>
+
+                <strong id="statWrong">
+                    0
+                </strong>
+            </div>
+
+
+            <div class="stat-card">
+                <span>
+                    Trefferquote
+                </span>
+
+                <strong id="statAccuracy">
+                    0 %
+                </strong>
+            </div>
+
+
+            <div class="stat-card">
+                <span>
+                    Lernzeit
+                </span>
+
+                <strong id="statLearningTime">
+                    0 min
+                </strong>
+            </div>
+
+        </div>
+
+
+        <!-- Statistik: Die Sieben-Tage-Serie erscheint zusätzlich hier. -->
+
+        <div class="statistics-streak-section">
+
+            <div class="statistics-streak-head">
+
+                <div>
+                    <p class="eyebrow">LETZTE 7 TAGE</p>
+                    <h2>Lernserie</h2>
+                    <p>Deine aktuelle Serie basiert auf den tatsächlich gespeicherten Lerntagen.</p>
+                </div>
+
+                <strong id="statisticsStreak" class="statistics-streak-count">0 Tage in Folge</strong>
+
+            </div>
+
+            <div id="statisticsStreakGrid" class="dashboard-streak-grid"></div>
+
+        </div>
+
+        <div class="statistics-section statistics-topic-section">
+
+            <div class="page-header">
+
+                <p class="eyebrow">THEMENANALYSE</p>
+                <h2>
+                    Fortschritt nach Thema
+                </h2>
+
+                <p>
+                    Auf einen Blick siehst du, wie sicher du in jedem Lernthema bist.
+                </p>
+
+            </div>
+
+
+            <div id="topicProgressList" class="topic-progress-grid"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRÜFUNGSSTATISTIK -->
+
+    <div class="statistics-section">
+        <div class="page-header">
+            <h2>📝 Prüfungsstatistik</h2>
+            <p>AP1 und AP2 getrennt ausgewertet.</p>
+        </div>
+
+        <div class="statistics-grid">
+            <div class="stat-card"><span>Absolvierte Prüfungen</span><strong id="statExamCount">0</strong></div>
+            <div class="stat-card"><span>Bestanden</span><strong id="statExamPassed">0</strong></div>
+            <div class="stat-card"><span>Ø IHK-Punkte</span><strong id="statExamAveragePoints">–</strong></div>
+        </div>
+
+        <div class="exam-part-stat-grid">
+            <article class="exam-part-stat-card"><div class="exam-part-stat-head"><span class="eyebrow">PRÜFUNGSTEIL</span><h3>AP1</h3></div><div class="exam-part-stat-values"><div><span>Prüfungen</span><strong id="statExamAp1Count">0</strong></div><div><span>Bestanden</span><strong id="statExamAp1Passed">0</strong></div><div><span>Ø Punkte</span><strong id="statExamAp1Average">–</strong></div></div></article>
+            <article class="exam-part-stat-card"><div class="exam-part-stat-head"><span class="eyebrow">PRÜFUNGSTEIL</span><h3>AP2</h3></div><div class="exam-part-stat-values"><div><span>Prüfungen</span><strong id="statExamAp2Count">0</strong></div><div><span>Bestanden</span><strong id="statExamAp2Passed">0</strong></div><div><span>Ø Punkte</span><strong id="statExamAp2Average">–</strong></div></div></article>
+        </div>
+
+        <div class="statistics-subsection">
+            <div class="page-header"><p class="eyebrow">NOTENVERTEILUNG</p><h2>Deine bisherigen Noten</h2><p>Wie oft du bisher jede IHK-Note erreicht hast.</p></div>
+            <div id="examGradeChart" class="exam-grade-chart"></div>
+        </div>
+    </div>
+
+</section>
+
+    <section
+        id="settingsPage"
+        class="page"
+    >
+
+        <div class="page-header">
+
+            <p class="eyebrow">
+                KONTO
+            </p>
+
+            <h1>
+                Einstellungen
+            </h1>
+
+            <p>
+                Deine Kontoinformationen.
+            </p>
+
+        </div>
+
+
+        <div class="settings-card">
+
+            <div class="setting-row">
+
+                <span>
+                    Benutzername
+                </span>
+
+                <strong id="settingsUsername">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <span>
+                    E-Mail
+                </span>
+
+                <strong id="settingsEmail">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <span>
+                    Benutzer-ID
+                </span>
+
+                <strong
+                    id="settingsUserId"
+                    class="user-id"
+                >
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="settings-edit-grid">
+            <div class="settings-edit-card">
+                <h2>Benutzername ändern</h2>
+                <form id="settingsUsernameForm">
+                    <label for="settingsUsernameInput">Neuer Benutzername</label>
+                    <input id="settingsUsernameInput" type="text" minlength="3" required>
+                    <button type="submit" class="card-button">Benutzername speichern</button>
+                </form>
+                <p id="settingsUsernameMessage" class="message"></p>
+            </div>
+            <div class="settings-edit-card">
+                <h2>Passwort ändern</h2>
+                <form id="settingsPasswordForm">
+                    <label for="settingsPasswordInput">Neues Passwort</label>
+                    <input id="settingsPasswordInput" type="password" minlength="8" autocomplete="new-password" required>
+                    <label for="settingsPasswordConfirm">Passwort wiederholen</label>
+                    <input id="settingsPasswordConfirm" type="password" minlength="8" autocomplete="new-password" required>
+                    <button type="submit" class="card-button">Passwort ändern</button>
+                </form>
+                <p id="settingsPasswordMessage" class="message"></p>
+            </div>
+        </div>
+
+        <div class="settings-edit-card settings-danger-card settings-delete-bottom">
+            <h2>Konto löschen</h2>
+            <p>Dein Konto und deine persönlichen Lern- und Prüfungsdaten werden dauerhaft gelöscht.</p>
+            <button type="button" id="deleteOwnAccountButton" class="danger-button">Konto dauerhaft löschen</button>
+            <p id="settingsDeleteMessage" class="message"></p>
+        </div>
+
+        <div class="settings-version-card">
+            <div class="settings-version-row">
+                <span>Version</span>
+                <strong>1.1.0</strong>
+            </div>
+            <div class="settings-version-divider"></div>
+            <div class="settings-version-change">
+                <span>Letzte Änderung</span>
+                <strong>Im Admin Bereich: Fragen können jetzt Haupt- und Unterthemen zugeordnet werden.</strong>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <section
+        id="impressumPage"
+        class="page"
+    >
+        <div class="page-header">
+            <p class="eyebrow">RECHTLICHES</p>
+            <h1>Impressum</h1>
+            <p>Diese Seite ist für die finalen Betreiberangaben vorbereitet.</p>
+        </div>
+        <div class="legal-card">
+            <h2>Anbieter</h2>
+            <p>[Name / Unternehmen hier eintragen]</p>
+            <h2>Adresse</h2>
+            <p>[Straße, Hausnummer, PLZ, Ort hier eintragen]</p>
+            <h2>Kontakt</h2>
+            <p>[E-Mail-Adresse und weitere Kontaktdaten hier eintragen]</p>
+            <p class="message">Vor der Veröffentlichung müssen die echten Betreiberangaben eingesetzt und rechtlich geprüft werden.</p>
+        </div>
+    </section>
+
+    <section
+        id="privacyPage"
+        class="page"
+    >
+        <div class="page-header">
+            <p class="eyebrow">RECHTLICHES</p>
+            <h1>Datenschutz</h1>
+            <p>Diese Seite ist als Platzhalter für die finale Datenschutzerklärung vorbereitet.</p>
+        </div>
+        <div class="legal-card">
+            <h2>Datenverarbeitung</h2>
+            <p>Das Portal verarbeitet unter anderem Konto-, Lern- und Prüfungsdaten über Supabase.</p>
+            <h2>Kontakt</h2>
+            <p>[Verantwortliche Stelle hier eintragen]</p>
+            <p class="message">Vor der Veröffentlichung muss eine vollständige, auf dein konkretes Portal abgestimmte Datenschutzerklärung ergänzt und geprüft werden.</p>
+        </div>
+    </section>
+
+
+    <section
+        id="adminPage"
+        class="page"
+    >
+
+        <div class="page-header">
+
+            <span class="admin-badge">
+                ADMIN
+            </span>
+
+            <h1>
+                Admin-Bereich
+            </h1>
+
+            <p>
+                Wähle einen Bereich aus. Geöffnet wird immer nur der ausgewählte Verwaltungsbereich.
+            </p>
+
+        </div>
+
+
+        <!-- ADMIN LAYOUT: Linke Navigation und rechter Arbeitsbereich. -->
+
+        <div class="admin-layout">
+
+            <aside class="admin-sidebar" aria-label="Admin-Navigation">
+
+                <div class="admin-sidebar-head">
+                    <span class="admin-sidebar-kicker">ADMIN</span>
+                    <h2>Verwaltung</h2>
+                    <p>Wähle links den Bereich aus, den du verwalten möchtest.</p>
+                </div>
+
+                <nav class="admin-sidebar-nav" aria-label="Verwaltungsbereiche">
+
+                    <button type="button" class="admin-module-card" data-admin-target="adminUsersSection">
+                        <span class="admin-module-icon">👥</span>
+                        <span class="admin-module-copy"><strong>Benutzer</strong><small>Konten und Rollen</small></span>
+                        <span class="admin-module-arrow">›</span>
+                    </button>
+
+                    <button type="button" class="admin-module-card" data-admin-target="adminQuestionsSection">
+                        <span class="admin-module-icon">▤</span>
+                        <span class="admin-module-copy"><strong>Fragen</strong><small>Themen und Fragen</small></span>
+                        <span class="admin-module-arrow">›</span>
+                    </button>
+
+                    <button type="button" class="admin-module-card" data-admin-target="adminExamsSection">
+                        <span class="admin-module-icon">📝</span>
+                        <span class="admin-module-copy"><strong>Prüfungen</strong><small>Prüfungen und Fragen</small></span>
+                        <span class="admin-module-arrow">›</span>
+                    </button>
+
+                    <button type="button" class="admin-module-card" data-admin-target="adminCalculatorSection">
+                        <span class="admin-module-icon">🧮</span>
+                        <span class="admin-module-copy"><strong>Rechner</strong><small>Berechnungen verwalten</small></span>
+                        <span class="admin-module-arrow">›</span>
+                    </button>
+
+                    <button type="button" class="admin-module-card" data-admin-target="adminFormulasSection">
+                        <span class="admin-module-icon">∑</span>
+                        <span class="admin-module-copy"><strong>Formeln</strong><small>Formelsammlung verwalten</small></span>
+                        <span class="admin-module-arrow">›</span>
+                    </button>
+
+                    <button type="button" class="admin-module-card" data-admin-target="adminStatisticsSection">
+                        <span class="admin-module-icon">📊</span>
+                        <span class="admin-module-copy"><strong>Statistiken</strong><small>Portalweite Auswertung</small></span>
+                        <span class="admin-module-arrow">›</span>
+                    </button>
+
+                </nav>
+
+            </aside>
+
+            <section class="admin-workspace" aria-live="polite">
+
+        <!-- BENUTZER -->
+
+        <details
+            id="adminUsersSection"
+            class="admin-panel"
+        >
+
+            <summary>
+
+                <div class="admin-panel-title">
+
+                    <span class="card-icon">
+                        👥
+                    </span>
+
+                    <div>
+                        <h2>
+                            Benutzer verwalten
+                        </h2>
+
+                        <p>
+                            Benutzerkonten, Benutzernamen und Rollen verwalten.
+                        </p>
+                    </div>
+
+                </div>
+
+                <span class="admin-panel-arrow">
+                    ▾
+                </span>
+
+            </summary>
+
+
+            <div class="admin-panel-content">
+
+                <div class="admin-user-toolbar">
+
+                    <input
+                        id="adminUserSearch"
+                        type="search"
+                        placeholder="Benutzer suchen …"
+                    >
+
+                </div>
+
+
+                <p
+                    id="adminUserMessage"
+                    class="message"
+                ></p>
+
+
+                <div
+                    id="adminUserList"
+                    class="admin-user-list"
+                ></div>
+
+
+                <div
+                    id="adminUserEditPanel"
+                    class="admin-user-edit-panel hidden"
+                >
+
+                    <h3>
+                        Benutzer bearbeiten
+                    </h3>
+
+
+                    <form id="adminUserEditForm">
+
+                        <input
+                            type="hidden"
+                            id="adminUserEditId"
+                        >
+
+
+                        <label for="adminUserEditUsername">
+                            Benutzername
+                        </label>
+
+                        <input
+                            id="adminUserEditUsername"
+                            type="text"
+                            minlength="3"
+                            required
+                        >
+
+
+                        <label for="adminUserEditRole">
+                            Rolle
+                        </label>
+
+                        <select
+                            id="adminUserEditRole"
+                        >
+
+                            <option value="user">
+                                Benutzer
+                            </option>
+
+                            <option value="admin">
+                                Administrator
+                            </option>
+
+                        </select>
+
+
+                        <p
+                            id="adminUserRoleHint"
+                            class="admin-user-role-hint"
+                        ></p>
+
+
+                        <div class="form-actions">
+
+                            <button
+                                type="submit"
+                            >
+                                Änderungen speichern
+                            </button>
+
+
+                            <button
+                                type="button"
+                                id="cancelAdminUserEdit"
+                                class="secondary-button"
+                            >
+                                Abbrechen
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </details>
+
+
+        <!-- FRAGEN -->
+
+        <details
+            id="adminQuestionsSection"
+            class="admin-panel"
+        >
+            <summary>
+                <div class="admin-panel-title">
+                    <span class="card-icon">▤</span>
+                    <div>
+                        <h2>Fragen verwalten</h2>
+                        <p>Themen, Unterthemen und einzelne Fragen verwalten.</p>
+                    </div>
+                </div>
+                <span class="admin-panel-arrow">▾</span>
+            </summary>
+            <div class="admin-panel-content">
+                <div class="admin-question-toolbar">
+                    <input
+                        id="adminQuestionSearch"
+                        type="search"
+                        placeholder="Frage, Thema oder Unterthema suchen …"
+                    >
+                    <input
+                        id="adminQuestionNumberSearch"
+                        class="admin-question-number-search"
+                        type="number"
+                        min="1"
+                        step="1"
+                        inputmode="numeric"
+                        placeholder="# Nummer"
+                        aria-label="Frage nach Nummer suchen"
+                    >
+                    <select id="adminQuestionCategoryFilter" class="admin-question-filter">
+                        <option value="">Alle Hauptthemen</option>
+                    </select>
+                    <select id="adminQuestionTopicFilter" class="admin-question-filter">
+                        <option value="">Alle Unterthemen</option>
+                    </select>
+                    <select id="adminQuestionTypeFilter" class="admin-question-filter">
+                        <option value="">Alle Fragetypen</option>
+                        <option value="multiple_choice">Multiple Choice</option>
+                        <option value="free_text">Freitext</option>
+                    </select>
+                    <select id="adminQuestionDifficultyFilter" class="admin-question-filter">
+                        <option value="">Alle Schwierigkeitsstufen</option>
+                        <option value="easy">Leicht</option>
+                        <option value="medium">Mittel</option>
+                        <option value="hard">Schwer</option>
+                    </select>
+                    <button
+                        type="button"
+                        id="openAdminTopicManager"
+                        class="secondary-button"
+                    >
+                        Themen verwalten
+                    </button>
+                    <button
+                        type="button"
+                        id="newAdminQuestionButton"
+                        class="card-button"
+                    >
+                        Neue Frage
+                    </button>
+                    <button
+                        type="button"
+                        id="exportAdminQuestionsButton"
+                        class="secondary-button"
+                    >
+                        Fragen exportieren
+                    </button>
+                    <label class="admin-import-button">
+                        Fragen importieren
+                        <input
+                            id="importAdminQuestionsInput"
+                            type="file"
+                            accept=".json,application/json"
+                            hidden
+                        >
+                    </label>
+                </div>
+
+                <p id="adminQuestionMessage" class="message"></p>
+
+                <div class="admin-question-browser admin-question-browser-all">
+                    <div class="admin-topic-question-list">
+                        <div class="admin-selected-topic-head">
+                            <div>
+                                <p class="eyebrow">AUSWAHL</p>
+                                <h3 id="adminSelectedTopicTitle">Alle Fragen</h3>
+                            </div>
+                            <span id="adminSelectedTopicCount" class="admin-count-badge">0</span>
+                        </div>
+                        <div id="adminQuestionList" class="admin-question-list"></div>
+                    </div>
+                </div>
+
+                <div
+                    id="adminQuestionEditPanel"
+                    class="admin-question-edit-panel hidden"
+                >
+                    <div class="admin-edit-head">
+                        <div>
+                            <p class="eyebrow">FRAGE</p>
+                            <h3 id="adminQuestionEditTitle">Neue Frage</h3>
+                        </div>
+                        <button
+                            type="button"
+                            id="cancelAdminQuestionEdit"
+                            class="secondary-button"
+                        >
+                            Abbrechen
+                        </button>
+                    </div>
+
+                    <form id="adminQuestionForm">
+                        <input type="hidden" id="adminQuestionId">
+
+                        <div class="admin-form-grid">
+                            <div>
+                                <label for="adminQuestionCategory">Hauptthema</label>
+                                <select id="adminQuestionCategory" required></select>
+                            </div>
+                            <div>
+                                <label for="adminQuestionTopic">Unterthema</label><p class="admin-field-hint">Die Frage wird unter diesem Unterthema gespeichert.</p>
+                                <select id="adminQuestionTopic" required></select>
+                            </div>
+                            <div>
+                                <label for="adminQuestionType">Fragetyp</label>
+                                <select id="adminQuestionType">
+                                    <option value="multiple_choice">Mehrfachauswahl (A–D)</option>
+                                    <option value="free_text">Freitext / eigene Antwort</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="adminQuestionDifficulty">Schwierigkeit</label>
+                                <select id="adminQuestionDifficulty">
+                                    <option value="leicht">Leicht</option>
+                                    <option value="mittel" selected>Mittel</option>
+                                    <option value="schwer">Schwer</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="adminQuestionExam">Prüfung (optional)</label>
+                                <p class="admin-field-hint">Keine Prüfung = nur im Fragenmodus.</p>
+                                <select id="adminQuestionExam">
+                                    <option value="">Keine Prüfung – nur Fragenmodus</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <label for="adminQuestionText">Frage</label>
+                        <textarea id="adminQuestionText" rows="4" required></textarea>
+
+                        <div class="admin-question-image-box">
+                            <label for="adminQuestionImage">Bild zur Frage</label>
+                            <input id="adminQuestionImage" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+                            <p class="admin-field-hint">Maximal 5 MB. Das Bild wird separat im Supabase-Storage gespeichert.</p>
+                            <input id="adminQuestionImagePath" type="hidden" value="">
+                            <div id="adminQuestionImagePreview" class="admin-question-image-preview hidden"></div>
+                            <button type="button" id="removeAdminQuestionImage" class="secondary-button hidden">Bild entfernen</button>
+                        </div>
+
+                        <div id="adminMultipleChoiceFields">
+                            <div class="admin-form-grid two">
+                                <div>
+                                    <label for="adminQuestionAnswerA">Antwort A</label>
+                                    <input id="adminQuestionAnswerA">
+                                </div>
+                                <div>
+                                    <label for="adminQuestionAnswerB">Antwort B</label>
+                                    <input id="adminQuestionAnswerB">
+                                </div>
+                                <div>
+                                    <label for="adminQuestionAnswerC">Antwort C</label>
+                                    <input id="adminQuestionAnswerC">
+                                </div>
+                                <div>
+                                    <label for="adminQuestionAnswerD">Antwort D</label>
+                                    <input id="adminQuestionAnswerD">
+                                </div>
+                            </div>
+
+                            <label for="adminQuestionCorrectAnswer">Richtige Antwort</label>
+                            <select id="adminQuestionCorrectAnswer">
+                                <option value="a">A</option>
+                                <option value="b">B</option>
+                                <option value="c">C</option>
+                                <option value="d">D</option>
+                            </select>
+                        </div>
+
+                        <div id="adminFreeTextFields" class="hidden">
+                            <label for="adminQuestionFreeTextAnswer">Erwartete Antwort</label>
+                            <textarea id="adminQuestionFreeTextAnswer" rows="4" placeholder="Mehrere akzeptierte Varianten jeweils in eine eigene Zeile eintragen."></textarea>
+                            <p class="admin-field-hint">Die Antwort wird für die automatische Bewertung normalisiert und mit diesen Varianten verglichen.</p>
+                        </div>
+
+                        <label for="adminQuestionExplanation">Erklärung</label>
+                        <textarea id="adminQuestionExplanation" rows="4" required></textarea>
+
+                        <div class="form-actions">
+                            <button type="submit">Frage speichern</button>
+                            <button type="button" id="duplicateAdminQuestionButton" class="secondary-button hidden">Frage duplizieren</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </details>
+
+
+        <!-- PRÜFUNGEN -->
+
+        <details
+            id="adminExamsSection"
+            class="admin-panel"
+        >
+
+            <summary>
+                <div class="admin-panel-title">
+                    <span class="card-icon">📝</span>
+                    <div>
+                        <h2>Prüfungen verwalten</h2>
+                        <p>Nur bestehende Prüfungen verwalten: Fragen hinzufügen, entfernen und neu sortieren.</p>
+                    </div>
+                </div>
+                <span class="admin-panel-arrow">▾</span>
+            </summary>
+
+            <div class="admin-panel-content">
+                <p id="adminExamMessage" class="message"></p>
+
+                <div class="admin-exam-toolbar">
+                    <div>
+                        <p class="eyebrow">BESTEHENDE PRÜFUNGEN</p>
+                        <h3 class="admin-subheading">Prüfung auswählen</h3>
+                    </div>
+                    <select id="adminExamQuestionSelect" aria-label="Prüfung auswählen">
+                        <option value="">Prüfung auswählen ...</option>
+                    </select>
+                </div>
+
+                <div id="adminExamList" class="admin-formula-list"></div>
+
+                <div id="adminExamManager" class="exam-question-manager hidden">
+                    <div class="admin-exam-manager-head">
+                        <div>
+                            <p class="eyebrow">FRAGENVERWALTUNG</p>
+                            <h3 id="adminExamManagerTitle">Prüfung auswählen</h3>
+                            <p id="adminExamManagerMeta" class="admin-inline-note">–</p>
+                        </div>
+                        <span id="adminExamQuestionCount" class="admin-count-badge">0</span>
+                    </div>
+
+                    <div class="admin-exam-manager-grid">
+                        <section class="admin-exam-manager-card">
+                            <div class="admin-exam-section-head">
+                                <div>
+                                    <h4>Fragen in der Prüfung</h4>
+                                    <p>Mit ↑ und ↓ änderst du die Reihenfolge.</p>
+                                </div>
+                            </div>
+                            <div id="adminExamCurrentList" class="admin-exam-current-list"></div>
+                        </section>
+
+                        <section class="admin-exam-manager-card">
+                            <div class="admin-exam-section-head">
+                                <div>
+                                    <h4>Fragen hinzufügen</h4>
+                                    <p>Nur Fragen, die noch nicht in der Prüfung sind.</p>
+                                </div>
+                                <input id="adminExamQuestionSearch" type="search" placeholder="Fragen suchen …" aria-label="Prüfungsfragen suchen">
+                            </div>
+                            <div id="adminExamAvailableList" class="admin-exam-available-list"></div>
+                        </section>
+                    </div>
+
+                    <div class="form-actions admin-exam-manager-actions">
+                        <button type="button" id="saveExamQuestionsButton" class="card-button">Änderungen speichern</button>
+                        <button type="button" id="cancelExamQuestionChangesButton" class="secondary-button">Änderungen verwerfen</button>
+                    </div>
+
+                    <p id="adminExamQuestionMessage" class="message"></p>
+                </div>
+            </div>
+        </details>
+
+
+        <!-- RECHNER -->
+
+        <details
+            id="adminCalculatorSection"
+            class="admin-panel"
+        >
+            <summary>
+                <div class="admin-panel-title">
+                    <span class="card-icon">🧮</span>
+                    <div>
+                        <h2>Rechner verwalten</h2>
+                        <p>Rechner anzeigen, sortieren, aktivieren und bearbeiten.</p>
+                    </div>
+                </div>
+                <span class="admin-panel-arrow">▾</span>
+            </summary>
+            <div class="admin-panel-content">
+                <div class="admin-question-toolbar">
+                    <span class="admin-inline-note">Die Berechnungsart bestimmt die sichere Berechnungslogik.</span>
+                    <button type="button" id="newAdminCalculatorButton" class="card-button">Neuen Rechner</button>
+                </div>
+                <p id="adminCalculatorMessage" class="message"></p>
+                <div id="adminCalculatorList" class="admin-calculator-list"></div>
+                <div id="adminCalculatorEditPanel" class="admin-calculator-edit-panel hidden">
+                    <div class="admin-edit-head">
+                        <div>
+                            <p class="eyebrow">RECHNER</p>
+                            <h3 id="adminCalculatorEditTitle">Neuer Rechner</h3>
+                        </div>
+                        <button type="button" id="cancelAdminCalculatorEdit" class="secondary-button">Abbrechen</button>
+                    </div>
+                    <form id="adminCalculatorForm">
+                        <input type="hidden" id="adminCalculatorId">
+                        <div class="admin-form-grid">
+                            <div>
+                                <label for="adminCalculatorTitle">Titel</label>
+                                <input id="adminCalculatorTitle" required>
+                            </div>
+                            <div>
+                                <label for="adminCalculatorCategory">Kategorie</label>
+                                <input id="adminCalculatorCategory" required>
+                            </div>
+                            <div>
+                                <label for="adminCalculatorSymbol">Symbol</label>
+                                <input id="adminCalculatorSymbol" maxlength="4" placeholder="Ω">
+                            </div>
+                            <div>
+                                <label for="adminCalculatorType">Berechnungsart</label>
+                                <select id="adminCalculatorType" required>
+                                    <option value="ohm">Ohmsches Gesetz</option>
+                                    <option value="power">Leistung</option>
+                                    <option value="energy">Energie</option>
+                                    <option value="frequency">Frequenz</option>
+                                    <option value="conversion">Einheitenumrechnung</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="adminCalculatorSortOrder">Reihenfolge</label>
+                                <input id="adminCalculatorSortOrder" type="number" min="0" step="1" value="0">
+                            </div>
+                            <div class="admin-switch-row">
+                                <label for="adminCalculatorActive">Aktiv</label>
+                                <input id="adminCalculatorActive" type="checkbox" checked>
+                            </div>
+                        </div>
+                        <label for="adminCalculatorDescription">Beschreibung</label>
+                        <textarea id="adminCalculatorDescription" rows="3"></textarea>
+                        <div class="form-actions">
+                            <button type="submit">Rechner speichern</button>
+                            <button type="button" id="resetAdminCalculatorForm" class="secondary-button">Zurücksetzen</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </details>
+
+
+        <!-- FORMELN -->
+
+        <details
+            id="adminFormulasSection"
+            class="admin-panel"
+        >
+
+            <summary>
+
+                <div class="admin-panel-title">
+
+                    <span class="card-icon">
+                        ∑
+                    </span>
+
+                    <div>
+                        <h2>
+                            Formeln verwalten
+                        </h2>
+
+                        <p>
+                            Formeln hinzufügen, bearbeiten und löschen.
+                        </p>
+                    </div>
+
+                </div>
+
+                <span class="admin-panel-arrow">
+                    ▾
+                </span>
+
+            </summary>
+
+
+            <div class="admin-panel-content">
+
+                <form id="formulaForm">
+
+                    <input
+                        type="hidden"
+                        id="formulaId"
+                    >
+
+
+                    <label for="formulaTitle">
+                        Titel
+                    </label>
+
+                    <input
+                        id="formulaTitle"
+                        required
+                        placeholder="z. B. Spannungsteiler"
+                    >
+
+
+                    <label for="formulaCategoryAdmin">
+                        Kategorie
+                    </label>
+
+                    <input
+                        id="formulaCategoryAdmin"
+                        required
+                        placeholder="z. B. Elektrotechnik"
+                    >
+
+
+                    <label for="formulaExpression">
+                        Formel
+                    </label>
+
+                    <input
+                        id="formulaExpression"
+                        required
+                        placeholder="z. B. U2 = U1 · R2 / (R1 + R2)"
+                    >
+
+
+                    <label for="formulaDescription">
+                        Beschreibung
+                    </label>
+
+                    <textarea
+                        id="formulaDescription"
+                        rows="3"
+                        placeholder="Kurze Erklärung"
+                    ></textarea>
+
+
+                    <label for="formulaVariables">
+                        Variablen
+                    </label>
+
+                    <input
+                        id="formulaVariables"
+                        placeholder="U = Spannung | R = Widerstand"
+                    >
+
+
+                    <label for="formulaUnits">
+                        Einheiten
+                    </label>
+
+                    <input
+                        id="formulaUnits"
+                        placeholder="U in V | R in Ω"
+                    >
+
+
+                    <label for="formulaExample">
+                        Beispiel
+                    </label>
+
+                    <textarea
+                        id="formulaExample"
+                        rows="3"
+                        placeholder="Kurzes Rechenbeispiel"
+                    ></textarea>
+
+
+                    <div class="form-actions">
+
+                        <button
+                            type="submit"
+                        >
+                            Formel speichern
+                        </button>
+
+
+                        <button
+                            id="cancelFormulaEdit"
+                            type="button"
+                            class="secondary-button"
+                        >
+                            Zurücksetzen
+                        </button>
+
+                    </div>
+
+                </form>
+
+
+                <h3 class="admin-subheading">
+                    Vorhandene Formeln
+                </h3>
+
+
+                <div
+                    id="adminFormulaList"
+                    class="admin-formula-list"
+                ></div>
+
+            </div>
+
+        </details>
+
+
+        <!-- STATISTIKEN -->
+
+        <details
+            id="adminStatisticsSection"
+            class="admin-panel"
+        >
+            <summary>
+                <div class="admin-panel-title">
+                    <span class="card-icon">📊</span>
+                    <div>
+                        <h2>Statistiken</h2>
+                        <p>Portalweite Nutzung und Lernaktivitäten.</p>
+                    </div>
+                </div>
+                <span class="admin-panel-arrow">▾</span>
+            </summary>
+            <div class="admin-panel-content">
+                <div class="admin-stat-grid">
+                    <div class="admin-stat-card"><span>Benutzer</span><strong id="adminStatUsers">–</strong></div>
+                    <div class="admin-stat-card"><span>Fragen</span><strong id="adminStatQuestions">–</strong></div>
+                    <div class="admin-stat-card"><span>Fragen beantwortet</span><strong id="adminStatAnswers">–</strong></div>
+                    <div class="admin-stat-card"><span>Lernaktivitäten</span><strong id="adminStatLearningEvents">–</strong></div>
+                    <div class="admin-stat-card"><span>Prüfungen</span><strong id="adminStatExams">–</strong></div>
+                    <div class="admin-stat-card"><span>Prüfungsversuche</span><strong id="adminStatAttempts">–</strong></div>
+                </div>
+                <div class="admin-stat-detail-grid">
+                    <div>
+                        <h3>Aktive Benutzer nach Erstellung</h3>
+                        <div id="adminStatUsersDetail" class="admin-stat-detail"></div>
+                    </div>
+                    <div>
+                        <h3>Fragen nach Thema</h3>
+                        <div id="adminStatTopicsDetail" class="admin-stat-detail"></div>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+            </section>
+
+        </div>
+
+    </section>
+
+</main>
+
+</div>
+
+
+<div
+    id="adminTopicModal"
+    class="admin-topic-modal hidden"
+    aria-hidden="true"
+>
+    <div class="admin-topic-modal-backdrop" data-admin-topic-close="true"></div>
+    <section
+        class="admin-topic-modal-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="adminTopicModalTitle"
+    >
+        <div class="admin-topic-modal-header">
+            <div>
+                <p class="eyebrow">THEMENVERWALTUNG</p>
+                <h2 id="adminTopicModalTitle">Themen</h2>
+            </div>
+            <button type="button" id="closeAdminTopicModal" class="admin-topic-modal-close" aria-label="Fenster schließen">×</button>
+        </div>
+        <div class="admin-topic-modal-toolbar">
+            <button type="button" id="adminTopicBackButton" class="secondary-button hidden">← Zurück</button>
+            <button type="button" id="newAdminTopicButton" class="card-button">Neues Thema</button>
+            <button type="button" id="newAdminSubtopicButton" class="secondary-button hidden">Neues Unterthema</button>
+        </div>
+        <div id="adminTopicModalContent" class="admin-topic-modal-content"></div>
+        <form id="adminTopicForm" class="admin-topic-form hidden">
+            <input type="hidden" id="adminTopicId">
+            <input type="hidden" id="adminTopicParentId">
+            <label for="adminTopicName">Name</label>
+            <input id="adminTopicName" required>
+            <label for="adminTopicDescription">Beschreibung</label>
+            <textarea id="adminTopicDescription" rows="3"></textarea>
+            <label for="adminTopicSortOrder">Reihenfolge</label>
+            <input id="adminTopicSortOrder" type="number" min="0" step="1" value="0">
+            <label class="admin-check-label"><input id="adminTopicActive" type="checkbox" checked> Aktiv</label>
+            <div class="form-actions">
+                <button type="submit">Speichern</button>
+                <button type="button" id="cancelAdminTopicForm" class="secondary-button">Abbrechen</button>
+            </div>
+            <p id="adminTopicFormMessage" class="message"></p>
+        </form>
+    </section>
+</div>
+
+<div
+    id="calendarModal"
+    class="calendar-modal hidden"
+    aria-hidden="true"
+>
+    <div class="calendar-modal-backdrop" data-calendar-close="true"></div>
+    <section
+        class="calendar-modal-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="calendarModalTitle"
+    >
+        <div class="calendar-modal-header">
+            <div>
+                <p class="eyebrow">LERNKALENDER</p>
+                <h2 id="calendarModalTitle">Tagesdetails</h2>
+            </div>
+            <button type="button" id="closeCalendarModal" class="calendar-modal-close" aria-label="Fenster schließen">×</button>
+        </div>
+        <div id="calendarModalContent" class="calendar-modal-content"></div>
+    </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

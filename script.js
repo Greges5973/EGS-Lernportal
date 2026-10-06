@@ -4563,7 +4563,8 @@ $("duplicateAdminQuestionButton")?.addEventListener("click", () => {
     $("adminQuestionEditTitle").textContent = "Frage duplizieren";
 });
 
-$("adminQuestionForm")?.addEventListener("submit", async (event) => {
+document.addEventListener("submit", async (event) => {
+    if (event.target.id !== "adminQuestionForm") return;
     event.preventDefault();
     const id = $("adminQuestionId").value;
     const type = $("adminQuestionType").value || "multiple_choice"; // Gewählter Fragetyp.
